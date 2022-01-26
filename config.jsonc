@@ -1,0 +1,24 @@
+{
+    "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.4.4/cli/site/site_config.schema.json",
+    "product": "Minipub",
+    "productSvg": "/images/logo-inline.svg",
+    "productRepo": "skymethod/minipub",
+    "contentRepo": "skymethod/minipub-docs",
+    "themeColor": "#5f27ca",
+    "themeColorDark": "#5f27ca",
+    "siteMetadata": {
+        "title": "Minipub",
+        "description": "Minimal ActivityPub server for posting federated podcast comments.",
+        "origin": "https://minipub.dev",
+        "twitterUsername": "@johnspurlock",
+        "image": "/images/og-image.1.png",
+        "imageAlt": "Minipub screenshot",
+        "faviconIco": "/images/favicon.1.ico",
+        "faviconSvg": "/images/favicon.1.svg",
+        "faviconMaskSvg": "/images/favicon.1.svg",
+        "faviconMaskColor": "#cfabfd",
+        "manifest": {
+            "name": "Minipub (minipub.dev)",
+        },
+    },
+}
