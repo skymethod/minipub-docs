@@ -13,7 +13,7 @@ In this case, the custom backend ([Minipub](/get-started)) will make direct AP c
 
 ## Overview from the user / podcast listener’s perspective
 
-The user creates zero fediverse accounts in this scenario, they just use podcast apps.
+The user creates zero Fediverse accounts in this scenario, they just use podcast apps.
 
 The user opens an episode in their native or web-based podcast player (called PodSqueeze in this example), reads the comments without leaving the podcast app (app pulls the comment data by [enumerating the thread](/info/activitypub-for-podcast-apps/display-comments) below the root post specified in the RSS feed for that episode).
 
@@ -34,13 +34,20 @@ minipub create-user \
   --origin https://comments.podsqueeze.com \
   --pem /path/to/admin.private.pem \
   --username alice \
+  --name "Alice Doe" \
   --icon /path/to/alice.150.jpg \
   --icon-size 150
 ```
 This will return a json response with the user's `actorUuid`, which you'll save in your app's existing backend database for all future interactions.
 You can rely on the actor uuid to remain immutable, regardless of any future username or other property changes to this user.  In this example, let's say the actor uuid is `81ce080ac25d4b3294b9eef08422964f`.
 
-When the users hits _Send_ on the reply from your app's UI, you'll need to create the new Note on your Minipub server, then federate it out to the recipient's server.
+The url for this user's Actor will be `https://comments.podsqueeze.com/actors/81ce080ac25d4b3294b9eef08422964f`
+
+Viewing this url in the browser will display the ActivityPub json other Fediverse servers will read automatically for authentication.  The actor url will also be linked from any WebFinger lookups for `@alice@podsqueeze.com`.
+
+When the user hits _Send_ on the reply from your app's UI, you'll need to create the new Note on your Minipub server, then federate it out to the recipient's server.
+
+Specify the actor making the comment as the first argument to `create-note`:
 
 ```sh
 minipub create-note 81ce080ac25d4b3294b9eef08422964f \
@@ -51,10 +58,21 @@ minipub create-note 81ce080ac25d4b3294b9eef08422964f \
   --to "https://www.w3.org/ns/activitystreams#Public" \
   --cc "https://example.social/users/bob"
 ```
-This first call returns the new object (Note) uuid, and the corresponding Create activity uuid (let's say it's `db8b86e411b04a899c1a0e1a288b7f75`).  The activity is what you want to federate:
+This first call returns the new object (Note) uuid, and the corresponding Create activity uuid. Let's say the object uuid is `284ed7ebf48949aea975453ae5ebc337`, 
+and the activity uuid is`db8b86e411b04a899c1a0e1a288b7f75`.
+
+The url for the new Note object will be `https://comments.podsqueeze.com/actors/81ce080ac25d4b3294b9eef08422964f/objects/284ed7ebf48949aea975453ae5ebc337`
+
+The url for the new Create activity will be `https://comments.podsqueeze.com/actors/81ce080ac25d4b3294b9eef08422964f/activities/db8b86e411b04a899c1a0e1a288b7f75`
+
+The activity is what you want to federate, so it's the first argument to `federate-activity`:
 
 ```sh
 minipub federate-activity db8b86e411b04a899c1a0e1a288b7f75 \
   --origin https://comments.podsqueeze.com \
   --pem /path/to/admin.private.pem
 ```
+
+`federate-activity` will identify the receipient of the comment, discover the remote inbox, and make the POST call to federate this comment to the remote server.
+It's safe to call `federate-activity` multiple times, Minipub saves federation progress state, so it will only make a successful call once.  This is nice in case
+something goes wrong and you need to retry failed federation again for an existing comment.

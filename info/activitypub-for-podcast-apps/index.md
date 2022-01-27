@@ -6,7 +6,7 @@ order: 3
 # ActivityPub for Podcast Client Apps
 _As of January 2022_
 
-These docs represent the subset of the fediverse/ActivityPub information necessary to 
+These docs represent the subset of the Fediverse/ActivityPub information necessary to 
 implement the `activitypub` protocol specified in the [comments for podcasting proposal](https://github.com/Podcastindex-org/podcast-namespace/blob/main/proposal-docs/social/social.md) from podcastindex.org.  It's targeted at developers of podcasting apps wanting to integrate these
 standardized comments into their own apps.
 
@@ -20,7 +20,7 @@ Podcast client apps can use the client-to-server (or _c2s_) ActivityPub interact
 the easiest to get started with, since the podcast app can interact with existing servers directly,
 without needing to stand up another internet-facing service of their own.
 
-However, given the open-ended nature of the ActivityPub, ActivityStream, and related specs, popular fediverse server implementations like Mastodon & Pleroma surface only a subset of their full functionality over c2s ActivityPub, reserving the rest for their proprietary c2s API (such as the [Mastodon REST API](https://docs.joinmastodon.org/api/)).
+However, given the open-ended nature of the ActivityPub, ActivityStream, and related specs, popular Fediverse server implementations like Mastodon & Pleroma surface only a subset of their full functionality over c2s ActivityPub, reserving the rest for their proprietary c2s API (such as the [Mastodon REST API](https://docs.joinmastodon.org/api/)).
 
 Reading information via standard ActivityPub is generally available in all servers, but writing back (posting) is constrained (in Pleroma's case) or completely nonexistant (in Mastodon's case).
 
@@ -30,7 +30,7 @@ Authorization is also left out of the ActivityPub spec, so c2s scenarios that re
 
 Podcast client apps could also choose to use the server-to-server (or _s2s_) ActivityPub interactions to host their
 own comments for federation out to the server specified by the podcaster in their feed.  This requires
-more work, but means a higher fidelity integration with popular fediverse server implementations, since this is the part of ActivityPub they support the most.
+more work, but means a higher fidelity integration with popular Fediverse server implementations, since this is the part of ActivityPub they support the most.
 
 This would be the right choice if a podcast client app wanted to use an existing user system without having to deal with users creating new accounts on external servers.
 
