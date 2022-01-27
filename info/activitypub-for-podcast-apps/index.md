@@ -40,11 +40,11 @@ _[Minipub](/get-started) gives you a service you can use to make this much easie
 
 ## Podcast client app scenarios
 Walkthroughs of specific examples relevant to podcast apps
-* [Display public comments for an episode (c2s)](/activitypub-for-podcast-apps/display-comments)
+* [Display public comments for an episode (c2s)](/info/activitypub-for-podcast-apps/display-comments)
 * Post a reply comment...
-  * [...as a user of the episode’s comment server (c2s)](/activitypub-for-podcast-apps/post-comment)
-  * [...as a user of another federated ActivityPub server, not the episode’s comment server (c2s)](/activitypub-for-podcast-apps/post-comment-federated)
-  * [...using a self-hosted ActivityPub server (Minipub) (s2s)](/activitypub-for-podcast-apps/post-comment-minipub)
+  * [...as a user of the episode’s comment server (c2s)](/info/activitypub-for-podcast-apps/post-comment)
+  * [...as a user of another federated ActivityPub server, not the episode’s comment server (c2s)](/info/activitypub-for-podcast-apps/post-comment-federated)
+  * [...using a self-hosted ActivityPub server (Minipub) (s2s)](/info/activitypub-for-podcast-apps/post-comment-minipub)
 
 ## Useful Docs
 ActivityPub Spec<br>

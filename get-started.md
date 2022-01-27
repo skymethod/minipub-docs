@@ -10,7 +10,10 @@ summary: Get started with Minipub
 2. Install the `minipub` cli
 
 ```sh
-deno install --name minipub --unstable --allow-net --allow-read --allow-write=. --allow-env https://raw.githubusercontent.com/skymethod/minipub/v0.1.0/cli.ts
+deno install --name minipub \
+  --allow-net --allow-env \
+  --allow-read --allow-write=. \
+  https://raw.githubusercontent.com/skymethod/minipub/v0.1.0/cli.ts
 ```
 3. Generate an admin user rsa keypair, save to two separate files: `admin.server.public.pem` and `admin.server.private.pem`
 
@@ -21,7 +24,11 @@ minipub generate
 5. Start the server
 
 ```sh
-minipub server --db path/to/storage.db --origin https://comments.yourapp.com --admin-ip 1.2.3.4 --admin-public-key-pem /path/to/admin.server.public.pem 
+minipub server \
+  --db path/to/storage.db \
+  --origin https://comments.yourapp.com \
+  --admin-ip 1.2.3.4 \
+  --admin-public-key-pem /path/to/admin.server.public.pem 
 ```
 
 ### Host Minipub inside a Cloudflare Worker
@@ -48,14 +55,16 @@ minipub server --db path/to/storage.db --origin https://comments.yourapp.com --a
   }
 }
 ```
-4. Upload to your Cloudflare account
+4. In the Cloudflare Dashboard:
+- Ensure you have the [Workers Paid](https://www.cloudflare.com/plans/developer-platform/#overview) plan enabled on your account (5.00 USD/month) 
+- Ensure you have [Durable Objects](https://developers.cloudflare.com/workers/runtime-apis/durable-objects) enabled on your account, used as the backend data storage
+
+5. Upload to your Cloudflare account
 
 ```sh
 denoflare push comments-yourapp-prod
 ```
-5. In the Cloudflare Dashboard:
-- Ensure you have the [Workers Paid](https://www.cloudflare.com/plans/developer-platform/#overview) plan enabled on your account (5.00 USD/month) 
-- Ensure you have [Durable Objects](https://developers.cloudflare.com/workers/runtime-apis/durable-objects) enabled on your account, used as the backend data storage
+6. In the Cloudflare Dashboard:
 - Set up an A record for your zone `yourapp.com` named `comments` pointing to `192.0.2.1`
 - In the `yourapp.com` zone, select _Workers_ -> _Add Route_, set _Route_ to `comments.yourapp.com/*`, and _Service_ to `comments-yourapp-prod`
 

@@ -15,7 +15,7 @@ In this case, the custom backend ([Minipub](/get-started)) will make direct AP c
 
 The user creates zero fediverse accounts in this scenario, they just use podcast apps.
 
-The user opens an episode in their native or web-based podcast player (called PodSqueeze in this example), reads the comments without leaving the podcast app (app pulls the comment data by [enumerating the thread](/activitypub-for-podcast-apps/display-comments) below the root post specified in the RSS feed for that episode).
+The user opens an episode in their native or web-based podcast player (called PodSqueeze in this example), reads the comments without leaving the podcast app (app pulls the comment data by [enumerating the thread](/info/activitypub-for-podcast-apps/display-comments) below the root post specified in the RSS feed for that episode).
 
 The user, already logged in to their podcast app, wants to post a comment. The user hits reply to the root comment or a subcomment in the app's UI. When the user hits "send", the app ensures this user has an identity set up on the app's underlying Minipub server automatically, creates and saves the local comment on the Minipub server automatically, and then federates that reply over to the target comment server using another Minipub call.
 
@@ -23,7 +23,7 @@ When other apps see that federated comment, it will have an identity like `alice
 
 ## Overview from the app developer’s perspective
 
-Simply [displaying a comment thread](/activitypub-for-podcast-apps/display-comments) can be done without Minipub.
+Simply [displaying a comment thread](/info/activitypub-for-podcast-apps/display-comments) can be done without Minipub.
 
 However, when one of your users wants to post a comment, you'll need to ensure they have a corresponding user (ActivityPub Actor) on the Minipub server.
 
