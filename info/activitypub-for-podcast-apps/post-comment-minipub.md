@@ -19,7 +19,7 @@ The user opens an episode in their native or web-based podcast player (called Po
 
 The user, already logged in to their podcast app, wants to post a comment. The user hits reply to the root comment or a subcomment in the app's UI. When the user hits "send", the app ensures this user has an identity set up on the app's underlying Minipub server automatically, creates and saves the local comment on the Minipub server automatically, and then federates that reply over to the target comment server using another Minipub call.
 
-When other apps see that federated comment, it will have an identity like `alice@podsqueeze.com` (for the user "alice" on the Podsqueeze app) in the enumerated thread. No local users ever get created over on the podcaster's social network server other than the account posting the root post, yet it still has a robust thread contributed to from many podcast apps (and possibly other Fediverse servers)
+When other apps see that federated comment, it will have an identity like `alice@comments.podsqueeze.com` (for the user "alice" on the Podsqueeze app) in the enumerated thread. No local users ever get created over on the podcaster's social network server other than the account posting the root post, yet it still has a robust thread contributed to from many podcast apps (and possibly other Fediverse servers)
 
 ## Overview from the app developer’s perspective
 
@@ -43,7 +43,7 @@ You can rely on the actor uuid to remain immutable, regardless of any future use
 
 The url for this user's Actor will be `https://comments.podsqueeze.com/actors/81ce080ac25d4b3294b9eef08422964f`
 
-Viewing this url in the browser will display the ActivityPub json other Fediverse servers will read automatically for authentication.  The actor url will also be linked from any WebFinger lookups for `@alice@podsqueeze.com`.
+Viewing this url in the browser will display the ActivityPub json other Fediverse servers will read automatically for authentication.  The actor url will also be linked from any WebFinger lookups for `@alice@comments.podsqueeze.com`.
 
 When the user hits _Send_ on the reply from your app's UI, you'll need to create the new Note on your Minipub server, then federate it out to the recipient's server.
 

@@ -1,6 +1,6 @@
 ---
 title: ActivityPub for Podcast Client Apps
-order: 3
+order: 1
 ---
 
 # ActivityPub for Podcast Client Apps
