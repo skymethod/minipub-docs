@@ -53,7 +53,7 @@ Specify the actor making the comment as the first argument to `create-note`:
 minipub create-note 81ce080ac25d4b3294b9eef08422964f \
   --origin https://comments.podsqueeze.com \
   --pem /path/to/admin.private.pem \
-  --content "this is my reply!" \
+  --content "this is my reply" \
   --in-reply-to "https://example.social/users/bob/statuses/123456123456123456" \
   --to "https://www.w3.org/ns/activitystreams#Public" \
   --cc "https://example.social/users/bob"
