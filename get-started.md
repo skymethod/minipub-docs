@@ -13,7 +13,7 @@ summary: Get started with Minipub
 deno install --name minipub \
   --allow-net --allow-env \
   --allow-read --allow-write \
-  https://raw.githubusercontent.com/skymethod/minipub/v0.1.1/src/cli.ts
+  https://raw.githubusercontent.com/skymethod/minipub/v0.1.4/src/cli.ts
 ```
 3. Generate an admin user rsa keypair, save to two separate files: `admin.server.public.pem` and `admin.server.private.pem`
 
@@ -43,7 +43,7 @@ minipub server \
 
   "scripts": {
     "comments-yourapp-prod": {
-      "path": "https://raw.githubusercontent.com/skymethod/minipub/v0.1.1/src/worker.ts",
+      "path": "https://raw.githubusercontent.com/skymethod/minipub/v0.1.4/src/worker.ts",
       "bindings": {
         "origin" : { "value": "https://comments.yourapp.com" },
         "backendNamespace": { "doNamespace": "comments-yourapp-prod-backend:BackendDO" },
@@ -71,7 +71,7 @@ denoflare push comments-yourapp-prod
 ### Administrate your Minipub server
 In either hosting option, you will now have a comments server running at `https://comments.yourapp.com`
 
-You can define users, create comments, federate activities using the Minipub [admin rpc api](https://github.com/skymethod/minipub/blob/v0.1.1/src/cli.ts#L33), or the `minipub` cli which wraps it.
+You can define users, create comments, federate activities using the Minipub [admin rpc api](https://github.com/skymethod/minipub/blob/v0.1.4/src/cli.ts#L37), or the `minipub` cli which wraps it.
 
 Full docs to come, but for now you can use the cli help for help with those commands (e.g. `minipub create-note --help`), or take a look
 at the [rpc model](https://github.com/skymethod/minipub/blob/master/src/rpc_model.ts) for the shape of the available json requests and responses.
