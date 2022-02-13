@@ -1,5 +1,6 @@
 ---
 title: More information
+order: 4
 ---
 
 ## More information

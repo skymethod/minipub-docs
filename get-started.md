@@ -1,6 +1,7 @@
 ---
 title: Get started
 summary: Get started with Minipub
+order: 2
 ---
 
 # Get Started
@@ -18,7 +19,7 @@ deno install --name minipub \
 3. Generate an admin user rsa keypair, save to two separate files: `admin.server.public.pem` and `admin.server.private.pem`
 
 ```sh
-minipub generate
+minipub generate-keypair
 ```
 4. Configure public internet traffic for your firewall/load-balancer to forward `https://comments.yourapp.com` to this machine, port 2022
 5. Start the server
@@ -69,12 +70,12 @@ denoflare push comments-yourapp-prod
 - In the `yourapp.com` zone, select _Workers_ -> _Add Route_, set _Route_ to `comments.yourapp.com/*`, and _Service_ to `comments-yourapp-prod`
 
 ### Administrate your Minipub server
-In either hosting option, you will now have a comments server running at `https://comments.yourapp.com`
+In either hosting option, you will now have a comments service running at `https://comments.yourapp.com`
 
-You can define users, create comments, federate activities using the Minipub [admin rpc api](https://github.com/skymethod/minipub/blob/v0.1.4/src/cli.ts#L37), or the `minipub` cli which wraps it.
+You can define users, create comments, federate activities using the Minipub [Admin RPC API](/admin-rpc), or the `minipub` cli which wraps it.
 
-Full docs to come, but for now you can use the cli help for help with those commands (e.g. `minipub create-note --help`), or take a look
-at the [rpc model](https://github.com/skymethod/minipub/blob/master/src/rpc_model.ts) for the shape of the available json requests and responses.
+You can use the cli help (e.g. `minipub --help` or `minipub create-note --help`), or take a look
+at the [Admin RPC API](/admin-rpc) docs for details of how to orchestrate your Minipub service from code.
 
 ### Ideas and Feedback
 Start a [discussion](https://github.com/skymethod/minipub/discussions) over in the project's Github repo
