@@ -101,14 +101,14 @@ i.e. the `--admin-ip` option to `minipub server` or the `adminIp` variable bindi
 
 | Kind          | Description   |
 | ------------- | ------------- |
-| [create-user](#) | Creates a new user (Actor) |
-| [update-user](#) | Updates a existing user (Actor) |
-| [create-note](#) | Creates a Note object and associated Activity |
-| [update-note](#) | Updates the content for an existing note object, and generates an Update activity if modified |
-| [delete-note](#) | Deletes an existing note object, and generates a Delete activity |
-| [federate-activity](#) | Federates an existing activity to its remote recipients, if any |
-| [delete-from-storage](#) | Deletes a value from backend storage |
-| [like-object](#) | Creates a local Like activity for a given remote object id |
-| [undo-like](#) | Creates a Undo activity for a given local Like activity |
-| [generate-admin-token](#) | Generates or regenerates a bearer token the admin can use to make rpc calls without http signing |
-| [revoke-admin-token](#) | Revokes the existing admin bearer token, allowing access only via http-signed calls |
+| [create-user](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L106) | Creates a new user (Actor) |
+| [update-user](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L144) | Updates a existing user (Actor) |
+| [create-note](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L197) | Creates a Note object and associated Activity |
+| [update-note](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L225) | Updates the content for an existing note object, and generates an Update activity if modified |
+| [delete-note](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L248) | Deletes an existing note object, and generates a Delete activity |
+| [federate-activity](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L268) | Federates an existing activity to its remote recipients, if any |
+| [delete-from-storage](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L291) | Deletes a value from backend storage |
+| [like-object](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L312) | Creates a local Like activity for a given remote object id |
+| [undo-like](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L333) | Creates a Undo activity for a given local Like activity |
+| [generate-admin-token](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L352) | Generates or regenerates a bearer token the admin can use to make rpc calls without http signing |
+| [revoke-admin-token](https://github.com/skymethod/minipub/blob/v0.1.4/src/rpc_model.ts#L369) | Revokes the existing admin bearer token, allowing access only via http-signed calls |
