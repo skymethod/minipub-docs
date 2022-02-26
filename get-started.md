@@ -14,7 +14,7 @@ order: 2
 deno install --name minipub \
   --allow-net --allow-env \
   --allow-read --allow-write \
-  https://raw.githubusercontent.com/skymethod/minipub/v0.1.4/src/cli.ts
+  https://raw.githubusercontent.com/skymethod/minipub/v0.1.5/src/cli.ts
 ```
 3. Generate an admin user rsa keypair, save to two separate files: `admin.server.public.pem` and `admin.server.private.pem`
 
@@ -44,7 +44,7 @@ minipub server \
 
   "scripts": {
     "comments-yourapp-prod": {
-      "path": "https://raw.githubusercontent.com/skymethod/minipub/v0.1.4/src/worker.ts",
+      "path": "https://raw.githubusercontent.com/skymethod/minipub/v0.1.5/src/worker.ts",
       "bindings": {
         "origin" : { "value": "https://comments.yourapp.com" },
         "backendNamespace": { "doNamespace": "comments-yourapp-prod-backend:BackendDO" },
