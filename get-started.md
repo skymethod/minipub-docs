@@ -40,7 +40,7 @@ minipub server \
 ```jsonc
 {
   // This file supports comments!
-  "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.4.2/common/config.schema.json",
+  "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/2ddef4cce293d56ab7137eacaf7d79db055b849b/common/config.schema.json",
 
   "scripts": {
     "comments-yourapp-prod": {
